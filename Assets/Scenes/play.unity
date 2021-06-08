@@ -259,7 +259,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -297,8 +297,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9e4543bb3935944b6f3c81932887e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 5
+  time: 30
+  spart_time: 10
   timerText: {fileID: 492883821}
+  newPrefab: {fileID: 3190265871339981270, guid: 45eec594f9f12444ebec8e7a4209f02e, type: 3}
+  speed1: 3
+  speed2: 5
+  interval: 1
+  min_interval: 1.5
+  max_interval: 2
 --- !u!1 &736617625
 GameObject:
   m_ObjectHideFlags: 0
