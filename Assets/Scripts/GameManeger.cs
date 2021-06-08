@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class GameManeger : MonoBehaviour
 {
     public float time; // 1playの秒数
     public Text timerText;
