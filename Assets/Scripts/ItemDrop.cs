@@ -9,6 +9,9 @@ public class ItemDrop : MonoBehaviour
     public string stage, player;
     float destroy_time = (float)0.3;
 
+    // スコア計算関係
+    public int myPoint; // GamgeManeger score1 or score2
+
     void Start()
     {
         // Rigidbody設定
@@ -28,6 +31,7 @@ public class ItemDrop : MonoBehaviour
             Destroy(this.gameObject, destroy_time);
         }else if(collision.gameObject.name == player){ // プレイヤーが拾ったとき
             this.gameObject.SetActive(false); // 非表示にする
+            GameManeger.totalScore += myPoint; // スコアを増やす
             Destroy(this.gameObject, destroy_time);
         }
     }

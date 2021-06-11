@@ -19,10 +19,16 @@ public class GameManeger : MonoBehaviour
     public float interval;
     public float min_interval, max_interval;
     float PrefabTimer = 0f;
+    
+    // スコア計算関係
+    public int score1, score2;
+    public Text ScoreText;
+    public static int totalScore; // 合計獲得スコア
 
     void Start()
     {
         InvokeRepeating("CreatePrefab", 0, interval);
+        totalScore = 0;
     }
 
     void Update(){
@@ -48,6 +54,9 @@ public class GameManeger : MonoBehaviour
                 interval = Random.Range(min_interval/2, max_interval/2);
             }
         }
+
+        // スコア表示
+        ScoreText.text = totalScore.ToString();
     }
 
     void CreatePrefab()
@@ -61,10 +70,12 @@ public class GameManeger : MonoBehaviour
         // プレハブ生成、位置指定、スピード指定
         GameObject target = Instantiate(newPrefab) as GameObject;
         target.transform.position = newPos;
-        if(!spart){
+        if(!spart){ // 落ちるスピードとスコアを設定
             target.GetComponent<ItemDrop>().speed = speed1;
+            target.GetComponent<ItemDrop>().myPoint = score1;
         }else{
             target.GetComponent<ItemDrop>().speed = speed2;
+            target.GetComponent<ItemDrop>().myPoint = score1;
         }
     }
 }
