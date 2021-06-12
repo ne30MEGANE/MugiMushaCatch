@@ -9,6 +9,6 @@ public class ResultShow : MonoBehaviour
     
     void Start()
     {
-        Score.text = GameManeger.totalScore.ToString() + " 点";
+        Score.text = GameManeger.totalScore.ToString() + " Pt";
     }
 }
