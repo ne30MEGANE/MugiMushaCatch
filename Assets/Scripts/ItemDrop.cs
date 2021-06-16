@@ -7,7 +7,7 @@ public class ItemDrop : MonoBehaviour
     public float speed;
     Rigidbody2D rbody;
     public string stage, player;
-    float destroy_time = (float)0.3;
+    float destroy_time = (float)0.2;
 
     // スコア計算関係
     public int myPoint; // GamgeManeger score1 or score2

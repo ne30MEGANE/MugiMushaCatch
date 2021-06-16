@@ -8,6 +8,7 @@ public class ChacterControler : MonoBehaviour
     public float speed;
     float vx = 0;
     bool RightFlag = true; // 右向きの時True
+    bool Moving = false; // 動いているかどうか
     SpriteRenderer character_SR;
     Rigidbody2D rbody;
     Sprite character_r, character_l;
@@ -29,14 +30,12 @@ public class ChacterControler : MonoBehaviour
 
     void Update()
     {
-        vx = 0;
-        if(Input.GetKey("right")){
-            RightFlag = true;
-            vx = speed;
-        }
-        if(Input.GetKey("left")){
-            RightFlag = false;
-            vx = -speed;
+        if(Moving){ // 右側か左側が入力されているとき
+            if(RightFlag){ // 右
+                vx = speed;
+            }else{ // 左
+                vx = -speed;
+            }
         }
     }
 
@@ -48,5 +47,26 @@ public class ChacterControler : MonoBehaviour
             character_SR.sprite = character_l;
         }
         rbody.velocity = new Vector2(vx, 0);
+    }
+
+    public void MoveRight()
+    {
+        Moving = true;
+        RightFlag = true;
+        Debug.Log(Moving + " right"); // for debug
+    }
+
+    public void MoveLeft()
+    {
+        Moving = true;
+        RightFlag = false;
+        Debug.Log(Moving + " left"); // for debug
+    }
+    
+    public void ButtonRelease()
+    {
+        Moving = false;
+        vx = 0;
+        Debug.Log(Moving + " release"); // for debug
     }
 }
